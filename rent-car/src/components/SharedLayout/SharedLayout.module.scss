@@ -14,7 +14,7 @@
 }
 
 .logo1 {
-  color: yellowgreen;
+  color: #efec00;
 }
 
 header {
@@ -23,7 +23,8 @@ header {
   display: flex;
   justify-content: space-around;
   width: 100%;
-  border: 1px solid black;
+  border: 2px solid $primary-black;
+  margin-bottom: 40px;
 }
 
 .nav_title {
