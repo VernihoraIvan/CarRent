@@ -1,11 +1,19 @@
+import { NavLink } from "react-router-dom";
+
 import styles from "../SharedLayout/SharedLayout.module.scss";
 
 const SharedLayout = () => {
   return (
     <header>
-      <a href="./index.html" className={styles.logo}>
+      <NavLink to="/" className={styles.logo}>
         <span className={styles.logo1}>car</span>rent
-      </a>
+      </NavLink>
+      <NavLink className={styles.nav_title} to="catalog">
+        Catalog
+      </NavLink>
+      <NavLink className={styles.nav_title} to="favorites">
+        Favorites
+      </NavLink>
     </header>
   );
 };

@@ -1,14 +1,35 @@
+@import "@/scss/base/variables.scss";
+@import "@/scss/base/mixins.scss";
+
 .logo {
   font-size: 18px;
-  font-weight: 800;
+  font-weight: 600;
   text-transform: uppercase;
-  font-family: "Raleway", sans-serif;
-  color: #3470ff;
+  font-family: $font-regular;
+  color: $primary-black;
   letter-spacing: 0.03em;
   display: flex;
   align-items: center;
+  text-decoration: none;
 }
 
 .logo1 {
   color: yellowgreen;
+}
+
+header {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  border: 1px solid black;
+}
+
+.nav_title {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: $font-regular;
+  color: $primary-black;
+  font-weight: 600;
 }

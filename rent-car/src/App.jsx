@@ -5,6 +5,8 @@ import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import SharedLayout from "./components/SharedLayout/SharedLayout";
 
+import "./scss/main.scss";
+
 const App = () => {
   return (
     <Routes>
