@@ -26,7 +26,72 @@
 background: #3470FF;
 color: $primary-white;
 }
-.select_brand {
+////////////////////////////////
+// select {
+//     display: none;
+// }
+
+// .select_selected {
+//     width: 224px;
+//     padding-top: 14px;
+//     padding-left: 18px;
+//     padding-bottom: 14px; 
+//     border-radius: 14px;
+//     background: #f7f7fb;
+//     border: none;
+//     font-size: 18px;
+//     font-weight: 500; 
+//     height: 48px;
+//     cursor: pointer;
+//     position: relative;
+
+// }
+// .select_selected:after {
+//     position: absolute;
+//     content: "";
+//     top: 14px;
+//     right: 10px;
+//     width: 0;
+//     height: 0;
+//     border: 6px solid transparent;
+//     border-color: #fff transparent transparent transparent;
+// }
+
+// .select_selected.select_arrow_active:after {
+//     border-color: transparent transparent #fff transparent;
+//     top: 7px;
+// }
+// .select_items div, .select-selected {
+//     color: #ffffff;
+//     padding: 8px 16px;
+//     border: 1px solid transparent;
+//     border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+//     cursor: pointer;
+//     position: relative;
+// }
+
+// .select_items {
+//     position: absolute;
+//     background-color: DodgerBlue;
+//     top: 100%;
+//     left: 0;
+//     right: 0;
+//     z-index: 99;
+// }
+
+ 
+// .select_items div:hover, .same-as-selected {
+//     background-color: rgba(0, 0, 0, 0.1);
+// }
+// .select_items {
+
+// }
+
+// .select_hide {
+
+// }
+//////////////////////////////
+.select_brand { 
     width: 224px;
     padding-top: 14px;
     padding-left: 18px;

@@ -1,0 +1,17 @@
+@import "@/scss/base/variables.scss";
+@import "@/scss/base/mixins.scss";
+
+.catalog_container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+
+}
+
+.catalog_table {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 30px;
+    column-gap: 50px;
+}
+

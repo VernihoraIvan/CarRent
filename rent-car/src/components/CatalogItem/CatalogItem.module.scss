@@ -1,0 +1,68 @@
+@import "@/scss/base/variables.scss";
+@import "@/scss/base/mixins.scss";
+
+.catalog_table_item {
+    width: 275px;
+    height: 425px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.catalog_table_item_img {
+    width: 425px;
+    height: 268px;
+    border-radius: 14px;
+    margin-bottom: 14px;
+}
+
+.item_title_container {
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 10px;
+    margin-bottom: 8px;
+}
+
+.item_button {
+    font-size: 14px;
+font-weight: 600;
+line-height: 20px;
+background: #3470FF;
+color: $primary-white;
+width: 100%;
+padding-top: 12px;
+padding-bottom: 12px;
+border-radius: 12px;
+}
+
+
+
+
+.model {
+    color: #3470FF;
+}
+
+.hash_list {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    row-gap: 4px;
+    color: rgba(18, 20, 23, 0.50);
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.hash_list > *::after {
+    content: ' | ';
+    margin-left: 6px;
+  }
+
+.hash_list > :last-child::after {
+    content: '';
+  }
+// .hash_list_item:not(:first-child):not(:last-child) {
+// margin-left: 6px;
+// margin-right: 6px;
+// }
