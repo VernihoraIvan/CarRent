@@ -1,9 +1,11 @@
-import styles from "./MainLMButton.module.scss"
+import styles from "./MainLMButton.module.scss";
 
 const MainLMButton = () => {
-    return (
-        <button className={styles.button}>Load more</button>
-    )
-}
+  return (
+    <div className={styles.button_container}>
+      <button className={styles.button}>Load more</button>
+    </div>
+  );
+};
 
 export default MainLMButton;

@@ -6,6 +6,7 @@
   display: flex;
   justify-content: center;
   margin: 0 auto;
+
 }
 
 .form {
@@ -30,6 +31,9 @@ transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
 .submit_button:hover {
     background-color: $secondary-blue;
+}
+.option_brand {
+    padding: 14px 8px 14px 18px;
 }
 ////////////////////////////////
 // select {

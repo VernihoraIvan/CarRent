@@ -33,9 +33,9 @@ const Select = () => {
         <div className={styles.form_element}>
           <label htmlFor="brand">Car brand</label>
           <select className={styles.select_brand} name="brand" id="brand">
-            <option value="Enter the text">Enter the text</option>
+            <option className={styles.option_brand} value="Enter the text">Enter the text</option>
             {brands?.map((brand) => (
-              <option key={brand} value={brand}>{brand}</option>
+              <option className={styles.option_brand} key={brand} value={brand}>{brand}</option>
             ))}
           </select>
         </div>

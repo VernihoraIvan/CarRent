@@ -6,6 +6,7 @@ import { fetchCars } from "@/redux/cars/operations";
 import { getCars } from "@/redux/cars/selectors";
 
 import {Loader} from "../Loader/Loader"
+import MainLMButton from "../MainLMButton/MainLMButton";
 
 const Catalog = () => {
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ const Catalog = () => {
           ) )}
         </div>
       </div>
+      <MainLMButton/> 
     </section>
   );
 };
