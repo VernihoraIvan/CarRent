@@ -11,7 +11,7 @@ const CatalogItem = ({item: { id, accessories, year, make, model, type, img, ren
   const accessoriesItemIndex = getRandomInt(accessories.length-1);
   const accessoriesItem = accessories[accessoriesItemIndex].split(" ");
   const shortAccessoriesItem = accessoriesItem.slice(accessoriesItem.length-2).join(" ");
-  
+
 return (
     <li className={styles.catalog_table_item}>
             <div className={styles.table_item_upper}>
@@ -32,7 +32,6 @@ return (
                 <li className={styles.hash_list_item}>{city}</li>
                 <li className={styles.hash_list_item}>{country}</li>
                 <li className={styles.hash_list_item}>{rentalCompany}</li>
-                <li className={styles.hash_list_item}>Premium</li>
                 <li className={styles.hash_list_item}>{type}</li>
                 <li className={styles.hash_list_item}>{model}</li>
                 <li className={styles.hash_list_item}>{id}</li>

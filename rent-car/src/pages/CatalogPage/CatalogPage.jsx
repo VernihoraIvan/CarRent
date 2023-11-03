@@ -7,6 +7,8 @@ import Select from "@/components/Select/Select";
 const CatalogPage = () => {
 
 
+
+
   return (
     <>
     <Select />  
