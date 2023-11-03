@@ -1,15 +1,28 @@
+import { useEffect } from "react";
 import CatalogItem from "../CatalogItem/CatalogItem";
 import styles from "./Catalog.module.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCars } from "@/redux/cars/operations";
+import { getCars } from "@/redux/cars/selectors";
 
 const Catalog = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCars());
+  }, [dispatch]);
+
+  const items = useSelector(getCars);
+
+  console.log(items)
   return (
     <section>
       <div className={styles.catalog_container}>
         <div className={styles.catalog_table}>
-            <CatalogItem/>
-            <CatalogItem/>
-            <CatalogItem/>
-            <CatalogItem/>
+          <CatalogItem />
+          <CatalogItem />
+          <CatalogItem />
+          <CatalogItem />
           {/* <li className={styles.catalog_table_item}>
             <div className={styles.table_item_upper}>
               <img
