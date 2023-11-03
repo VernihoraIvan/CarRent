@@ -7,11 +7,11 @@ const CatalogItem = ({item: { id, accessories, year, make, model, type, img, ren
 
   const city = address.split(",")[1].trim();
   const country = address.split(",")[2].trim();
+
   const accessoriesItemIndex = getRandomInt(accessories.length-1);
   const accessoriesItem = accessories[accessoriesItemIndex].split(" ");
-  console.log(accessoriesItem)
   const shortAccessoriesItem = accessoriesItem.slice(accessoriesItem.length-2).join(" ");
-  console.log(shortAccessoriesItem)
+  
 return (
     <li className={styles.catalog_table_item}>
             <div className={styles.table_item_upper}>

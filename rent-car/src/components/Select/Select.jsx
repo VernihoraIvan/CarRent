@@ -1,30 +1,30 @@
-    // import { useState } from "react";
+import { fetchBrands } from "@/redux/cars/operations";
+import { getBrands } from "@/redux/cars/selectors";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 import styles from "./Select.module.scss";
 
 const Select = () => {
-//   const [isSelectBrandIsOpen, setSelectBrandIsOpen] = useState(false);
-//   const onClickBrandIsOpen = () => {
-//     setSelectBrandIsOpen(!isSelectBrandIsOpen);
-//   };
+  const dispatch = useDispatch();
+  const brands = useSelector(getBrands);
+
+  useEffect(() => {
+    dispatch(fetchBrands());
+  }, [dispatch])
+
 
   return (
     <div className={styles.input_container}>
       <form className={styles.form}>
-        {/* <div className={styles.select_selected} onClick={onClickBrandIsOpen}>
-          <p>Enter the text</p>
-          <div className={styles.select_items}>
-            <div>Audi</div>
-            <div>Volvo</div>
-            <div>Ford</div>
-          </div>
-        </div> */}
         <div className={styles.form_element}>
           <label htmlFor="brand">Car brand</label>
           <select className={styles.select_brand} name="brand" id="brand">
             <option value="Enter the text">Enter the text</option>
-            <option value="Enter the text">Audi</option>
-            <option value="Enter the text">Volvo</option>
-            <option value="Enter the text">Ford</option>
+            {brands?.map((brand) => (
+              <option key={brand} value="Enter the text">{brand}</option>
+            ))}
+
           </select>
         </div>
         <div className={styles.form_element}>
