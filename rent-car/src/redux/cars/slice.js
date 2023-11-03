@@ -2,18 +2,14 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import {fetchCars} from "./operations";
 
-const initialState = {
-    cars : {
-        items: []
-    }
-}
+const initialState = {};
 
 const carSlice = createSlice({
     name: "cars",
     initialState,
     extraReducers: {
         [fetchCars.fulfilled](state, action) {
-            state.cars.items = action.payload;
+            state.items = action.payload;
         }
     }
 })
