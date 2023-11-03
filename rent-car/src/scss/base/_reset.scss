@@ -32,8 +32,6 @@ ul {
 
 a,
 a:visited {
-  // text-decoration: none;
-  // color: inherit;
 
   cursor: pointer;
 }
@@ -49,14 +47,9 @@ body {
 }
 
 button {
-  font-family: inherit;
-  // color: $primary-black-2;
-  background-color: $primary-green-lite;
-
+  font-family: inherit; 
   border: none;
-
   white-space: nowrap;
-
   &:hover {
     cursor: pointer;
   }
@@ -70,9 +63,6 @@ img {
 
 input:not([type="radio"]) {
   font-family: inherit;
-  border: 1px solid $primary-green-lite;
-  color: $primary-grey;
-  background-color: $primary-black-2;
 
   &:focus {
     outline: none;

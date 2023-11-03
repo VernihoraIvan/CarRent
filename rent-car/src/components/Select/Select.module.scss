@@ -23,8 +23,13 @@
     height: 48px;
     padding: 14px 44px;
     border-radius: 12px;
-background: #3470FF;
+background: $primary-blue;
 color: $primary-white;
+transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.submit_button:hover {
+    background-color: $secondary-blue;
 }
 ////////////////////////////////
 // select {

@@ -1,0 +1,12 @@
+@import "@/scss/base/variables.scss";
+@import "@/scss/base/mixins.scss";
+
+.button {
+    background-color: inherit;
+    color: $primary-blue;
+    transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button:hover {
+    color: $secondary-blue;
+}
