@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import {fetchBrands, fetchAllCars} from "./operations";
+import {fetchBrands, fetchAllCars} from "./thunk";
 
 const initialState = {};
 

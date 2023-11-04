@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import CatalogItem from "../CatalogItem/CatalogItem";
 import styles from "./Catalog.module.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchAllCars } from "@/redux/cars/operations";
+import { fetchAllCars } from "@/redux/cars/thunk";
 import { getCars } from "@/redux/cars/selectors";
 
 import {Loader} from "../Loader/Loader"

@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
-import { fetchBrands } from "@/redux/cars/operations";
+import { fetchBrands } from "@/redux/cars/thunk";
 import { getBrands } from "@/redux/cars/selectors";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import styles from "./Select.module.scss";
+import { filterCars } from "@/redux/filter/slice";
 
 const Select = () => {
   const [brand, setBrand] = useState(null);
@@ -12,24 +13,28 @@ const Select = () => {
   const [minMileage, setMinMileage] = useState(null);
   const [maxMileage, setMaxMileage] = useState(null);
 
-  console.log({ brand, price, minMileage, maxMileage });
-
   const onChange = (event, setter) => {
     setter(event.target.value);
   };
   const dispatch = useDispatch();
   const brandList = useSelector(getBrands);
 
-  const filteredList = brandList?.filter(
-    (element) =>
-      (element.make ===
-        brand &&
-        element.rentalPrice.splice(1) <= price &&
-        element.mileage >= minMileage &&
-        element.mileage <= maxMileage)
-  );
+  const onSubmit = (event) => {
+    event.preventDefault();
+    console.log({brand, price, minMileage, maxMileage});
+    dispatch(filterCars({brand, price, minMileage, maxMileage}))
+  }
 
-  console.log(filteredList)
+  // const filteredList = brandList?.filter(
+  //   (element) =>
+  //     (element.make ===
+  //       brand &&
+  //       element.rentalPrice.splice(1) <= price &&
+  //       element.mileage >= minMileage &&
+  //       element.mileage <= maxMileage)
+  // );
+
+  // console.log(filteredList)
 
   useEffect(() => {
     dispatch(fetchBrands());
@@ -114,9 +119,9 @@ const Select = () => {
           </div>
         </div>
         <div className={styles.form_element}>
-          <button className={styles.submit_button} type="submit">
+          <div onClick={onSubmit} className={styles.submit_button} type="submit">
             Search
-          </button>
+          </div>
         </div>
       </form>
     </div>
