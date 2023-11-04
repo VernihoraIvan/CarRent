@@ -8,8 +8,8 @@ import styles from "./Select.module.scss";
 import { filterCars } from "@/redux/filter/slice";
 
 const Select = () => {
-  const [brand, setBrand] = useState(null);
-  const [price, setPrice] = useState(null);
+  const [brand, setBrand] = useState('Enter the text');
+  const [price, setPrice] = useState('price');
   const [minMileage, setMinMileage] = useState(null);
   const [maxMileage, setMaxMileage] = useState(null);
 
@@ -21,21 +21,9 @@ const Select = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    console.log({brand, price, minMileage, maxMileage});
     dispatch(filterCars({brand, price, minMileage, maxMileage}))
   }
-
-  // const filteredList = brandList?.filter(
-  //   (element) =>
-  //     (element.make ===
-  //       brand &&
-  //       element.rentalPrice.splice(1) <= price &&
-  //       element.mileage >= minMileage &&
-  //       element.mileage <= maxMileage)
-  // );
-
-  // console.log(filteredList)
-
+  
   useEffect(() => {
     dispatch(fetchBrands());
   }, [dispatch]);
