@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import {fetchBrands, fetchCars} from "./operations";
+import {fetchBrands, fetchAllCars} from "./operations";
 
 const initialState = {};
 
@@ -8,7 +8,7 @@ const carSlice = createSlice({
     name: "cars",
     initialState,
     extraReducers: {
-        [fetchCars.fulfilled](state, action) {
+        [fetchAllCars.fulfilled](state, action) {
             state.items = action.payload;            
         },
         [fetchBrands.fulfilled](state, action) {
