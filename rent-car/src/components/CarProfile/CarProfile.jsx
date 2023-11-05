@@ -1,11 +1,59 @@
-import styles from "./CarProfile.module.scss";
-import cofee from "./coffee.jpg";
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
+import ReactDom from "react-dom";
 
-const CarProfile = () => {
-  return (
-    <div className={styles.overlay}>
+import styles from "./CarProfile.module.scss";
+import { Loader } from "../Loader/Loader";
+
+const CarProfile = (props) => {
+  const { open, onClose, data } = props;
+
+  if (!open) return null;
+
+  if (!data && open) {
+    return <Loader />;
+  }
+
+  const onBackdropClose = (e) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
+
+  const {
+    id,
+    year,
+    make,
+    model,
+    type,
+    img,
+    description,
+    fuelConsumption,
+    engineSize,
+    accessories,
+    functionalities,
+    rentalPrice,
+    rentalCompany,
+    address,
+    rentalConditions,
+    mileage,
+  } = data;
+
+  const getRandomInt = (max) => Math.floor(Math.random() * max);
+
+  const city = address.split(",")[1].trim();
+  const country = address.split(",")[2].trim();
+
+  const accessoriesItemIndex = getRandomInt(accessories.length - 1);
+  const accessoriesItem = accessories[accessoriesItemIndex].split(" ");
+  const shortAccessoriesItem = accessoriesItem
+    .slice(accessoriesItem.length - 2)
+    .join(" ");
+
+  return ReactDom.createPortal(
+    <div onClick={onBackdropClose} className={styles.overlay}>
       <div className={styles.modal_container}>
-        <div className={styles.close}>
+        <div className={styles.close} onClick={() => onClose()}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -29,28 +77,26 @@ const CarProfile = () => {
             />
           </svg>
         </div>
-        <img className={styles.img} src={cofee} alt="photo" />
+        <img className={styles.img} src={img} alt={make} />
         <div className={styles.table_item_upper}>
           <div className={styles.item_title_container}>
             <h3 className={styles.item_title}>
-              Buick <span className={styles.highlight}>Enclave</span>, 2022
+              {make} <span className={styles.highlight}>{model}</span>, {year}
             </h3>
           </div>
           <ul className={styles.hash_list}>
-            <li className={styles.hash_list_item}>city</li>
-            <li className={styles.hash_list_item}>country</li>
-            <li className={styles.hash_list_item}>rentalCompany</li>
-            <li className={styles.hash_list_item}>type</li>
-            <li className={styles.hash_list_item}>model</li>
-            <li className={styles.hash_list_item}>id</li>
-            <li className={styles.hash_list_item}>shortAccessoriesItem</li>
+            <li className={styles.hash_list_item}>{city}</li>
+            <li className={styles.hash_list_item}>{country}</li>
+            <li className={styles.hash_list_item}>
+              Fuel Consumption: {fuelConsumption}
+            </li>
+            <li className={styles.hash_list_item}>Type: {type}</li>
+            <li className={styles.hash_list_item}>Engine Size: {engineSize}</li>
+            <li className={styles.hash_list_item}>{shortAccessoriesItem}</li>
           </ul>
         </div>
         <div className={styles.description_container}>
-          <p className={styles.description}>
-            The Buick Enclave is a stylish and spacious SUV known for its
-            comfortable ride and luxurious features.
-          </p>
+          <p className={styles.description}>{description}</p>
         </div>
         <div className={styles.accessories_container}>
           <h3 className={styles.accessories_title}>
@@ -75,19 +121,20 @@ const CarProfile = () => {
               Valid driver&apos;s license
             </li>
             <li className={styles.rental_list_item}>
-              Security deposite required{" "}
+              Security deposite required
             </li>
             <li className={styles.rental_list_item}>
               Mileage:<span className={styles.highlight}>5,850</span>
             </li>
             <li className={styles.rental_list_item}>
-              Price: <span className={styles.highlight}>40$</span>
+              Price: <span className={styles.highlight}>{rentalPrice}</span>
             </li>
           </ul>
         </div>
         <button className={styles.button}>Rental car</button>
       </div>
-    </div>
+    </div>,
+    document.getElementById("portal")
   );
 };
 

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import CatalogItem from "../CatalogItem/CatalogItem";
 import styles from "./Catalog.module.scss";
@@ -8,7 +9,8 @@ import { getCars } from "@/redux/cars/selectors";
 import { Loader } from "../Loader/Loader";
 import { getFilteredCars } from "@/redux/filter/selectors";
 
-const Catalog = () => {
+// eslint-disable-next-line react/prop-types
+const Catalog = ({ openModal }) => {
   const [controlledFilterList, setControlledFilteredList] = useState({
     brand: "",
     price: "",
@@ -20,7 +22,6 @@ const Catalog = () => {
   const items = useSelector(getCars);
   const filter = useSelector(getFilteredCars);
 
-  console.log(perPage);
   useEffect(() => {
     dispatch(fetchAllCars());
   }, [dispatch]);
@@ -66,7 +67,7 @@ const Catalog = () => {
           <button onClick={onLoadMore} className={styles.button}>
             Load more
           </button>
-        </div>{" "}
+        </div>
       </section>
     );
   }
@@ -76,7 +77,7 @@ const Catalog = () => {
       <div className={styles.catalog_container}>
         <div className={styles.catalog_table}>
           {items.slice(0, perPage).map((item) => (
-            <CatalogItem item={item} key={item.id} />
+            <CatalogItem openModal={openModal} item={item} key={item.id} />
           ))}
         </div>
       </div>
