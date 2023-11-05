@@ -1,12 +1,11 @@
 /* eslint-disable react/prop-types */
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./CatalogItem.module.scss";
-import { choosedCar } from "@/redux/filter/slice";
+import { choosedCar, favoriteCar } from "@/redux/filter/slice";
 import { useState } from "react";
 
 // eslint-disable-next-line react/prop-types
 const CatalogItem = (props) => {
-  const [isFavorite, setIsFavorite] = useState(false);
   const dispatch = useDispatch();
   const {
     id,
@@ -20,8 +19,14 @@ const CatalogItem = (props) => {
     address,
     rentalCompany,
   } = props.item;
-  const getRandomInt = (max) => Math.floor(Math.random() * max);
 
+  const { isFavorite } = props.isFavorite;
+  console.log(isFavorite);
+
+  const favoriteList = useSelector(favoriteCar);
+  console.log(favoriteList.payload.favorite);
+
+  const getRandomInt = (max) => Math.floor(Math.random() * max);
   const city = address.split(",")[1].trim();
   const country = address.split(",")[2].trim();
 
@@ -31,14 +36,18 @@ const CatalogItem = (props) => {
     .slice(accessoriesItem.length - 2)
     .join(" ");
 
-  const onClickHandler = (id) => {
+  const toFavorite = () => {
+    dispatch(favoriteCar(id));
+  };
+
+  const onLearnMoreHandler = (id) => {
     dispatch(choosedCar(id));
     props.openModal();
   };
 
   return (
     <li className={styles.catalog_table_item}>
-      <div className={styles.favorite_icon}>
+      <div className={styles.favorite_icon} onClick={toFavorite}>
         {isFavorite ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -98,7 +107,10 @@ const CatalogItem = (props) => {
           <li className={styles.hash_list_item}>{shortAccessoriesItem}</li>
         </ul>
       </div>
-      <button onClick={() => onClickHandler(id)} className={styles.item_button}>
+      <button
+        onClick={() => onLearnMoreHandler(id)}
+        className={styles.item_button}
+      >
         Learn more
       </button>
     </li>

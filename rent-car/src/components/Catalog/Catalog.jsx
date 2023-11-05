@@ -17,6 +17,7 @@ const Catalog = ({ openModal }) => {
     minMileage: "",
     maxMileage: "",
   });
+  const [isFavorite, setIsFavorite] = useState(true);
   const [perPage, setPerPage] = useState(12);
   const dispatch = useDispatch();
   const items = useSelector(getCars);
@@ -30,6 +31,9 @@ const Catalog = ({ openModal }) => {
     setControlledFilteredList(filter);
   }, [filter]);
 
+  const favoriteHandler = (value) => {
+    setIsFavorite((prev) => prev.push(value));
+  };
   const filteredList = items?.filter(
     (element) =>
       (controlledFilterList.price === "price"
@@ -59,7 +63,13 @@ const Catalog = ({ openModal }) => {
         <div className={styles.catalog_container}>
           <div className={styles.catalog_table}>
             {filteredList.slice(0, perPage).map((item) => (
-              <CatalogItem item={item} key={item.id} />
+              <CatalogItem
+                openModal={openModal}
+                isFavorite={isFavorite}
+                favoriteHandler={favoriteHandler}
+                item={item}
+                key={item.id}
+              />
             ))}
           </div>
         </div>
@@ -77,7 +87,13 @@ const Catalog = ({ openModal }) => {
       <div className={styles.catalog_container}>
         <div className={styles.catalog_table}>
           {items.slice(0, perPage).map((item) => (
-            <CatalogItem openModal={openModal} item={item} key={item.id} />
+            <CatalogItem
+              openModal={openModal}
+              isFavorite={isFavorite}
+              favoriteHandler={favoriteHandler}
+              item={item}
+              key={item.id}
+            />
           ))}
         </div>
       </div>
