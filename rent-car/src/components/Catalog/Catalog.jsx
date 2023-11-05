@@ -6,33 +6,48 @@ import { fetchAllCars } from "@/redux/cars/thunk";
 import { getCars } from "@/redux/cars/selectors";
 
 import { Loader } from "../Loader/Loader";
-import MainLMButton from "../MainLMButton/MainLMButton";
 import { getFilteredCars } from "@/redux/filter/selectors";
 
-
-
 const Catalog = () => {
-  const [controlledFilterList, setControlledFilteredList] = useState({brand: "", price: "", minMileage: "", maxMileage: ""}) 
+  const [controlledFilterList, setControlledFilteredList] = useState({
+    brand: "",
+    price: "",
+    minMileage: "",
+    maxMileage: "",
+  });
+  const [perPage, setPerPage] = useState(12);
   const dispatch = useDispatch();
   const items = useSelector(getCars);
   const filter = useSelector(getFilteredCars);
 
-
+  console.log(perPage);
   useEffect(() => {
     dispatch(fetchAllCars());
   }, [dispatch]);
 
   useEffect(() => {
-    setControlledFilteredList(filter) 
+    setControlledFilteredList(filter);
   }, [filter]);
 
   const filteredList = items?.filter(
     (element) =>
-      (controlledFilterList.price === 'price' ? true : Number(element.rentalPrice.slice(1)) <= controlledFilterList.price) &&
-      (controlledFilterList.brand === 'Enter the text' ? true : element.make === controlledFilterList.brand) &&
-      (controlledFilterList.minMileage === null ? true : element.mileage >= controlledFilterList.minMileage) &&
-      (controlledFilterList.maxMileage === null ? true : element.mileage <= controlledFilterList.maxMileage)
+      (controlledFilterList.price === "price"
+        ? true
+        : Number(element.rentalPrice.slice(1)) <= controlledFilterList.price) &&
+      (controlledFilterList.brand === "Enter the text"
+        ? true
+        : element.make === controlledFilterList.brand) &&
+      (controlledFilterList.minMileage === null
+        ? true
+        : element.mileage >= controlledFilterList.minMileage) &&
+      (controlledFilterList.maxMileage === null
+        ? true
+        : element.mileage <= controlledFilterList.maxMileage)
   );
+
+  const onLoadMore = () => {
+    setPerPage((prev) => prev + 12);
+  };
 
   if (!items) {
     return <Loader />;
@@ -42,12 +57,16 @@ const Catalog = () => {
       <section>
         <div className={styles.catalog_container}>
           <div className={styles.catalog_table}>
-            {filteredList.map((item) => (
+            {filteredList.slice(0, perPage).map((item) => (
               <CatalogItem item={item} key={item.id} />
             ))}
           </div>
         </div>
-        <MainLMButton />
+        <div className={styles.button_container}>
+          <button onClick={onLoadMore} className={styles.button}>
+            Load more
+          </button>
+        </div>{" "}
       </section>
     );
   }
@@ -56,15 +75,18 @@ const Catalog = () => {
     <section>
       <div className={styles.catalog_container}>
         <div className={styles.catalog_table}>
-          {items.map((item) => (
-              <CatalogItem item={item} key={item.id} />
-            ))}
+          {items.slice(0, perPage).map((item) => (
+            <CatalogItem item={item} key={item.id} />
+          ))}
         </div>
       </div>
-      <MainLMButton />
+      <div className={styles.button_container}>
+        <button onClick={onLoadMore} className={styles.button}>
+          Load more
+        </button>
+      </div>
     </section>
   );
 };
 
 export default Catalog;
-
