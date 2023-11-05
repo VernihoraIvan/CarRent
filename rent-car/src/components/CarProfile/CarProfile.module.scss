@@ -13,7 +13,6 @@
 .modal_container {
     background-color: $primary-white;
     width: 541px;
-    height: 752px;
     border-radius: 24px;
     padding: 40px;
 }
@@ -29,6 +28,7 @@
 .table_item_upper {
     width: 277px;
     height: 72px;
+    margin-bottom: 14px;
 }
 
 .item_title_container {
@@ -39,12 +39,12 @@
 }
 
 .item_title {
-    font-size: 16px;
+    font-size: 18px;
     height: 20px;
     overflow: hidden;
 }
 
-.model {
+.highlight {
     color: $primary-blue;
 }
 
@@ -65,4 +65,59 @@
 
 .hash_list > :last-child::after {
     content: '';
-  }
+}
+
+.hash_list_item {
+    font-size: 14px;
+
+}
+
+.description_container {
+    margin-bottom: 24px;
+}
+
+.description {
+    font-size: 14px;
+}
+
+.accessories_container {
+    margin-bottom: 24px;
+}
+.accessories_title {
+    font-size: 14px;
+font-weight: 500;
+line-height: 20px;
+margin-bottom: 8px;
+}
+
+.rental_container {
+    margin-bottom: 24px;
+}
+
+.rental_title {
+    margin-bottom: 8px;
+}
+.rental_list {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 8px;
+    column-gap: 8px;
+}
+
+.rental_list_item {
+    padding: 7px 14px;
+    border-radius: 35px;
+background-color: $primary_grey;
+}
+
+.button {
+    padding: 12px 50px;
+    border-radius: 12px;
+background: #3470FF;
+color: $primary-white;
+transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.button:hover {
+    background-color: $secondary-blue;
+
+}
