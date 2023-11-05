@@ -34,7 +34,7 @@ const Select = () => {
   while (priceList[priceList.length - 1] < 300) {
     priceList.push(priceList[priceList.length - 1] + 10);
   }
-  while (mileage[mileage.length - 1] < 1000000) {
+  while (mileage[mileage.length - 1] < 100000) {
     mileage.push(mileage[mileage.length - 1] + 500);
   }
 
