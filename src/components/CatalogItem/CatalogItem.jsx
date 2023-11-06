@@ -1,11 +1,17 @@
 /* eslint-disable react/prop-types */
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./CatalogItem.module.scss";
-import { choosedCar, favoriteCar } from "@/redux/filter/slice";
-// import { useState } from "react";
+import {
+  choosedCar,
+  deleteFavoriteCar,
+  favoriteCar,
+} from "@/redux/filter/slice";
+import { useEffect, useState } from "react";
+import { getfavoriteCar } from "@/redux/filter/selectors";
 
 // eslint-disable-next-line react/prop-types
 const CatalogItem = (props) => {
+  const [isFav, setIsFav] = useState(false);
   const dispatch = useDispatch();
   const {
     id,
@@ -20,10 +26,7 @@ const CatalogItem = (props) => {
     rentalCompany,
   } = props.item;
 
-  const { isFavorite } = props.isFavorite;
-
-  // const favoriteList = useSelector(favoriteCar);
-  // console.log(favoriteList.payload.favorite);
+  const favoriteCarsIds = useSelector(getfavoriteCar);
 
   const getRandomInt = (max) => Math.floor(Math.random() * max);
   const city = address.split(",")[1].trim();
@@ -36,18 +39,27 @@ const CatalogItem = (props) => {
     .join(" ");
 
   const toFavorite = () => {
-    dispatch(favoriteCar(id));
+    setIsFav(!isFav);
+    if (favoriteCarsIds.includes(id)) {
+      dispatch(deleteFavoriteCar(id));
+    } else {
+      dispatch(favoriteCar(id));
+    }
   };
+  useEffect(() => {
+    if (favoriteCarsIds.includes(id)) {
+      setIsFav(true);
+    }
+  }, [favoriteCarsIds, id]);
 
   const onLearnMoreHandler = (id) => {
     dispatch(choosedCar(id));
     props.openModal();
   };
-
   return (
     <li className={styles.catalog_table_item}>
-      <div className={styles.favorite_icon} onClick={toFavorite}>
-        {isFavorite ? (
+      <div className={styles.favorite_icon} onClick={() => toFavorite(id)}>
+        {isFav ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="18"

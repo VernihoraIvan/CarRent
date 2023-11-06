@@ -10,9 +10,6 @@ const FavoriteList = () => {
   const [list, setList] = useState([]);
   const items = useSelector(getCars);
   const idList = useSelector(getfavoriteCar);
-  console.log(idList);
-  console.log(list);
-  console.log(items);
 
   useEffect(() => {
     setList(idList);

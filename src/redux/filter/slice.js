@@ -21,10 +21,10 @@ const carFavoriteSlice = createSlice({
   initialState: { id: [] },
   reducers: {
     favoriteCar: (state, action) => {
-      const newData = action.payload;
-      if (!state.id.find((item) => item === newData)) {
-        state.id.push(newData);
-      }
+      state.id.push(action.payload);
+    },
+    deleteFavoriteCar: (state, action) => {
+      state.id = state.id.filter((car) => car !== action.payload);
     },
   },
 });
@@ -37,3 +37,5 @@ export const { choosedCar } = carChoosedSlice.actions;
 
 export const favoriteReducer = carFavoriteSlice.reducer;
 export const { favoriteCar } = carFavoriteSlice.actions;
+
+export const { deleteFavoriteCar } = carFavoriteSlice.actions;

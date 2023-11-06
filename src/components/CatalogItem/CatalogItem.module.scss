@@ -2,6 +2,7 @@
 @import "@/scss/base/mixins.scss";
 
 .catalog_table_item {
+  position: relative;
   width: 275px;
   height: 425px;
   display: flex;
@@ -24,9 +25,9 @@
 }
 
 .favorite_icon {
-  position: relative;
+  position: absolute;
   z-index: 10;
-  top: 35px;
+  top: 10px;
   left: 245px;
   cursor: pointer;
 }
