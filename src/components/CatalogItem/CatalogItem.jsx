@@ -21,10 +21,9 @@ const CatalogItem = (props) => {
   } = props.item;
 
   const { isFavorite } = props.isFavorite;
-  console.log(isFavorite);
 
-  const favoriteList = useSelector(favoriteCar);
-  console.log(favoriteList.payload.favorite);
+  // const favoriteList = useSelector(favoriteCar);
+  // console.log(favoriteList.payload.favorite);
 
   const getRandomInt = (max) => Math.floor(Math.random() * max);
   const city = address.split(",")[1].trim();
