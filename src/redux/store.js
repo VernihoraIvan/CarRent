@@ -20,9 +20,15 @@ const favoritePersistConfig = {
   whitelist: ["id"],
 };
 
+const favoritePersistConfigg = {
+  key: "cars",
+  storage,
+  whitelist: ["items"],
+};
+
 export const store = configureStore({
   reducer: {
-    cars: carsReducer,
+    cars: persistReducer(favoritePersistConfigg, carsReducer),
     filter: filterReducer,
     choice: choiceReducer,
     favorite: persistReducer(favoritePersistConfig, favoriteReducer),
