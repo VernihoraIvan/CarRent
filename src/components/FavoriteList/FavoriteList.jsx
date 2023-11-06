@@ -4,17 +4,25 @@ import { getCars } from "@/redux/cars/selectors";
 import { getfavoriteCar } from "@/redux/filter/selectors";
 import CatalogItem from "../CatalogItem/CatalogItem";
 import { Loader } from "../Loader/Loader";
+import { useEffect, useState } from "react";
 
 const FavoriteList = () => {
+  const [list, setList] = useState([]);
   const items = useSelector(getCars);
   const idList = useSelector(getfavoriteCar);
   console.log(idList);
+  console.log(list);
+  console.log(items);
+
+  useEffect(() => {
+    setList(idList);
+  }, [idList]);
 
   const favoriteCarsList = items?.filter((element) =>
-    idList.includes(element.id)
+    list.includes(element.id)
   );
 
-  if (!items) {
+  if (!items && !list) {
     return <Loader />;
   }
   return (

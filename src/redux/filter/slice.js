@@ -18,12 +18,12 @@ const carChoosedSlice = createSlice({
 
 const carFavoriteSlice = createSlice({
   name: "favorite",
-  initialState: [],
+  initialState: { id: [] },
   reducers: {
     favoriteCar: (state, action) => {
       const newData = action.payload;
-      if (!state.find((item) => item === newData)) {
-        state.push(newData);
+      if (!state.id.find((item) => item === newData)) {
+        state.id.push(newData);
       }
     },
   },

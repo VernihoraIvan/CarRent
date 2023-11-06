@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import styles from "./CatalogItem.module.scss";
 import { choosedCar, favoriteCar } from "@/redux/filter/slice";
-import { useState } from "react";
+// import { useState } from "react";
 
 // eslint-disable-next-line react/prop-types
 const CatalogItem = (props) => {
