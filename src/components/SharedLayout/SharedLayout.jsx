@@ -18,7 +18,9 @@ const SharedLayout = () => {
           Favorites
         </NavLink>
       </header>
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
       <Footer />
     </>
   );

@@ -5,6 +5,12 @@ html {
   height: 100%;
 }
 
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
 *,
 *:before,
 *:after {
@@ -32,7 +38,6 @@ ul {
 
 a,
 a:visited {
-
   cursor: pointer;
 }
 
@@ -44,12 +49,11 @@ body {
   flex-direction: column;
   color: $primary-black;
 
-
   font-family: $font-regular;
 }
 
 button {
-  font-family: inherit; 
+  font-family: inherit;
   border: none;
   white-space: nowrap;
   &:hover {
