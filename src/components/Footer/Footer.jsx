@@ -1,5 +1,5 @@
 import styles from "./Footer.module.scss";
-// import svg from "@/assets/images/icon.svg"
+import svg from "@/assets/images/icon.svg";
 
 const Footer = () => {
   return (
@@ -19,18 +19,10 @@ const Footer = () => {
             <h2 className={styles.social_media_title}>Social media</h2>
             <ul className={styles.social_media_list}>
               <li className={styles.social_media_list_item}>
-                <a href="" className={styles.social_media_link}>
-                  <svg
-                    className={styles.social_media_item}
-                    width="40px"
-                    height="40px"
-                  >
-                    <use className={styles.use_social_media} href="./"></use>
-                  </svg>
-                </a>
-              </li>
-              <li className={styles.social_media_list_item}>
-                <a href="" className={styles.social_media_link}>
+                <a
+                  href="https://www.instagram.com/"
+                  className={styles.social_media_link}
+                >
                   <svg
                     className={styles.social_media_item}
                     width="40px"
@@ -38,13 +30,16 @@ const Footer = () => {
                   >
                     <use
                       className={styles.use_social_media}
-                      href="./images/icon.svg#icon-tweeter"
+                      href={`${svg}#icon-instagram`}
                     ></use>
                   </svg>
                 </a>
               </li>
               <li className={styles.social_media_list_item}>
-                <a href="" className={styles.social_media_link}>
+                <a
+                  href="https://www.facebook.com/"
+                  className={styles.social_media_link}
+                >
                   <svg
                     className={styles.social_media_item}
                     width="40px"
@@ -52,13 +47,16 @@ const Footer = () => {
                   >
                     <use
                       className={styles.use_social_media}
-                      href="./images/icon.svg#icon-facebook"
+                      href={`${svg}#icon-facebook`}
                     ></use>
                   </svg>
                 </a>
               </li>
               <li className={styles.social_media_list_item}>
-                <a href="" className={styles.social_media_link}>
+                <a
+                  href="https://www.twitter.com/"
+                  className={styles.social_media_link}
+                >
                   <svg
                     className={styles.social_media_item}
                     width="40px"
@@ -66,7 +64,24 @@ const Footer = () => {
                   >
                     <use
                       className={styles.use_social_media}
-                      href="./images/icon.svg#icon-linkedin"
+                      href={`${svg}#icon-twitter`}
+                    ></use>
+                  </svg>
+                </a>
+              </li>
+              <li className={styles.social_media_list_item}>
+                <a
+                  href="https://www.linkedin.com/"
+                  className={styles.social_media_link}
+                >
+                  <svg
+                    className={styles.social_media_item}
+                    width="40px"
+                    height="40px"
+                  >
+                    <use
+                      className={styles.use_social_media}
+                      href={`${svg}#icon-linkedin`}
                     ></use>
                   </svg>
                 </a>
