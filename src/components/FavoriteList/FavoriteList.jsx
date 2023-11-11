@@ -25,9 +25,16 @@ const FavoriteList = () => {
   return (
     <div className={styles.catalog_container}>
       <div className={styles.catalog_table}>
-        {favoriteCarsList?.map((item) => (
-          <CatalogItem isFavorite={true} item={item} key={item.id} />
-        ))}
+        {favoriteCarsList.length > 0 ? (
+          favoriteCarsList.map((item) => (
+            <CatalogItem isFavorite={true} item={item} key={item.id} />
+          ))
+        ) : (
+          <div>
+            Sorry. Nothing could be found using the selected filter. Try
+            changing the filter.
+          </div>
+        )}
       </div>
     </div>
   );
