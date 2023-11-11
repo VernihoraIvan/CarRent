@@ -14,3 +14,27 @@
   row-gap: 30px;
   column-gap: 50px;
 }
+
+.small_container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+
+.button {
+  text-decoration: none;
+  width: 142px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  background: $primary-blue;
+  color: $primary-white;
+  padding: 12px;
+  border-radius: 12px;
+  transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button:hover {
+  background-color: $secondary-blue;
+}
