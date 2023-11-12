@@ -1,0 +1,45 @@
+@import "@/scss/base/variables.scss";
+@import "@/scss/base/mixins.scss";
+
+.home_container {
+  margin: 0 auto;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-family: $font-regular;
+  color: $primary-black;
+  letter-spacing: 0.03em;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo1 {
+  color: $primary-green;
+}
+
+.button {
+  text-align: center;
+  text-decoration: none;
+  width: 142px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  background: $primary-blue;
+  color: $primary-white;
+  padding: 12px;
+  border-radius: 12px;
+  transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button:hover {
+  background-color: $secondary-blue;
+}

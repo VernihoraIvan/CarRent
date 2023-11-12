@@ -32,10 +32,7 @@ const FavoriteList = () => {
           ))
         ) : (
           <div className={styles.small_container}>
-            <h3>
-              Sorry. Nothing could be found using the selected filter. Try
-              changing the filter.
-            </h3>
+            <h3>Sorry. Nothing could be found using the selected filter.</h3>
             <Link to="/catalog" className={styles.button}>
               Go to our Catalog
             </Link>
